@@ -40,21 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITuiElement.cs" />
+    <Compile Include="IElement.cs" />
     <Compile Include="Structs\Point.cs" />
     <Compile Include="TuiApp.cs" />
-    <Compile Include="TuiTextCursor.cs" />
-    <Compile Include="Inputs\Base\ITuiControl.cs" />
-    <Compile Include="Inputs\Base\TuiControl.cs" />
-    <Compile Include="Inputs\TuiButton.cs" />
-    <Compile Include="Inputs\TuiLabel.cs" />
-    <Compile Include="Inputs\TuiMenu\TuiMenu.cs" />
-    <Compile Include="Inputs\TuiMenu\TuiMenuDropdown.cs" />
-    <Compile Include="Inputs\TuiMenu\TuiMenuItem.cs" />
-    <Compile Include="Inputs\TuiTextBox.cs" />
+    <Compile Include="TextCursor.cs" />
+    <Compile Include="Inputs\Base\IControl.cs" />
+    <Compile Include="Inputs\Base\Control.cs" />
+    <Compile Include="Inputs\Button.cs" />
+    <Compile Include="Inputs\Label.cs" />
+    <Compile Include="Inputs\TuiMenu\Menu.cs" />
+    <Compile Include="Inputs\TuiMenu\MenuDropdown.cs" />
+    <Compile Include="Inputs\TuiMenu\MenuItem.cs" />
+    <Compile Include="Inputs\TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConsoleManager.cs" />
-    <Compile Include="Windows\Base\TuiWindow.cs" />
+    <Compile Include="Windows\Base\Window.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

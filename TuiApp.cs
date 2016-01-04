@@ -6,7 +6,7 @@ namespace TextUI {
 
     public class TuiApp {
 
-        public TuiApp(TuiWindow rootWindow = null, string title = null, ConsoleColor backgroundColor = ConsoleColor.Black, bool fullscreenMode = false) {
+        public TuiApp(Window rootWindow = null, string title = null, ConsoleColor backgroundColor = ConsoleColor.Black, bool fullscreenMode = false) {
 
             BackgroundColor = backgroundColor;
             Title = title ?? "TUI App";
@@ -32,7 +32,7 @@ namespace TextUI {
         public int Height {
             get { return Console.WindowHeight; }
         }
-        private TuiWindow _rootWindow;
+        private Window _rootWindow;
         private int _marginX;
         private int _marginY;
 
@@ -41,7 +41,7 @@ namespace TextUI {
         /// </summary>
         /// <param name="window">A window.</param>
         /// <returns>True for success and False if window failed to be set</returns>
-        public bool SetRootWindow(TuiWindow window) {
+        public bool SetRootWindow(Window window) {
             try {
                 _rootWindow = window;
                 if (_rootWindow != null) {

@@ -5,22 +5,22 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs {
 
-    public class TuiTextBox : TuiControl {
+    public class TextBox : Control {
 
-        public TuiTextBox(int x, int y, string id, TuiWindow parentWindow, int length = 38) 
+        public TextBox(int x, int y, string id, Window parentWindow, int length = 38) 
             : base(x, y, 1, length, parentWindow, id) {
 
-            TextCursor = new TuiTextCursor(parentWindow);
+            TextCursor = new TextCursor(parentWindow);
             IsSelectable = true;     
             Text = "";
         }
 
-        public TuiTextBox(int x, int y, string text, string id, TuiWindow parentWindow, int length = 38) 
+        public TextBox(int x, int y, string text, string id, Window parentWindow, int length = 38) 
             : base(x, y, 1, length, parentWindow, id) {
 
             Text = text;
 
-            TextCursor = new TuiTextCursor(parentWindow);
+            TextCursor = new TextCursor(parentWindow);
             CursorPostion = text.Length;
 
             IsSelectable = true;

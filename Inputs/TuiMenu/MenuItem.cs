@@ -5,10 +5,10 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs.TuiMenu
 {
-    public class TuiMenuItem : TuiControl
+    public class MenuItem : Control
     {
 
-        public TuiMenuItem(String text, String id, TuiWindow parentWindow)
+        public MenuItem(String text, String id, Window parentWindow)
             : base(0, 0, 1, 0, parentWindow, id)
         {
             Text = text; 

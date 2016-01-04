@@ -6,9 +6,9 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs {
 
-    public class TuiLabel : TuiControl {
+    public class Label : Control {
 
-        public TuiLabel(int x, int y, String text, String id, TuiWindow parentWindow) : base(x, y, 1, text.Count(), parentWindow, id) {
+        public Label(int x, int y, String text, String id, Window parentWindow) : base(x, y, 1, text.Count(), parentWindow, id) {
             Text = text;
             BackgroundColour = parentWindow.BackgroundColor;
             IsSelectable = false;

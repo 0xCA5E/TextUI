@@ -6,9 +6,9 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs {
 
-    public class TuiButton : TuiControl {
+    public class Button : Control {
 
-        public TuiButton(int x, int y, string text, string id, TuiWindow parentWindow, Action onPress) 
+        public Button(int x, int y, string text, string id, Window parentWindow, Action onPress) 
             : base(x, y, 1, text.Count() + 2, parentWindow, id) {
             Text = text;
             IsSelectable = true;

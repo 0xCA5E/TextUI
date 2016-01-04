@@ -7,11 +7,11 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs.TuiMenu
 {
-    public class TuiMenuDropdown : TuiWindow
+    public class MenuDropdown : Window
     {
 
-        public TuiMenuDropdown(int Xpostion, int Ypostion, List<TuiMenuItem> menuItems, TuiWindow parentTuiWindow)
-            : base(Xpostion, Ypostion, 20, menuItems.Count() + 2, parentTuiWindow, ConsoleColor.Gray)
+        public MenuDropdown(int Xpostion, int Ypostion, List<MenuItem> menuItems, Window parentWindow)
+            : base(Xpostion, Ypostion, 20, menuItems.Count() + 2, parentWindow, ConsoleColor.Gray)
         {
 
             for (var i = 0; i < menuItems.Count(); i++)
@@ -32,7 +32,7 @@ namespace TextUI.Inputs.TuiMenu
             Draw();
         }
 
-        private List<TuiMenuItem> MenuItems;
+        private List<MenuItem> MenuItems;
         
     }
 }

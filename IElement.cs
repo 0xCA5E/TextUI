@@ -3,9 +3,9 @@ using TextUI.Windows.Base;
 
 namespace TextUI {
 
-    public interface ITuiElement {
+    public interface IElement {
 
-        TuiWindow ParentWindow { get; }
+        Window ParentWindow { get; }
         TuiApp ContainingApp { get; }
         int Width { get; }
         int Height { get; }

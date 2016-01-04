@@ -5,9 +5,9 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs.Base {
 
-    public abstract class TuiControl : ITuiControl {
+    public abstract class Control : IControl {
 
-        protected TuiControl(int x, int y, int height, int width, TuiWindow parentWindow, string id) {
+        protected Control(int x, int y, int height, int width, Window parentWindow, string id) {
 
             var rightBoundry = (parentWindow.Origin.X + parentWindow.Width) - 1;
             var bottomBoundry = (parentWindow.Origin.Y + parentWindow.Height) - 1;
@@ -34,10 +34,10 @@ namespace TextUI.Inputs.Base {
                 };
             }
         }
-        internal TuiTextCursor TextCursor { get; set; }
+        internal TextCursor TextCursor { get; set; }
         public bool IsSelectable { get; set; }
         public string Id { get; set; }
-        public TuiWindow ParentWindow { get; set; }
+        public Window ParentWindow { get; set; }
         public TuiApp ContainingApp { get; internal set; }
 
         public virtual void Select() {}

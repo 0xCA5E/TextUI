@@ -8,7 +8,7 @@ using TextUI.Windows.Base;
 
 namespace TextUI.Inputs.TuiMenu {
 
-    public class TuiMenu : TuiControl {
+    public class Menu : Control {
 
         private String Text = "";
         private ConsoleColor TextColour = ConsoleColor.Black;
@@ -17,10 +17,10 @@ namespace TextUI.Inputs.TuiMenu {
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
 
         private bool Selected = false;
-        public List<TuiMenuItem> MenuItems = new List<TuiMenuItem>();
-        public TuiMenuDropdown TuiMenuDropdown;
+        public List<MenuItem> MenuItems = new List<MenuItem>();
+        public MenuDropdown MenuDropdown;
 
-        public TuiMenu(String text, int x, int y, String id, TuiWindow parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, id) {
+        public Menu(String text, int x, int y, String id, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, id) {
             Text = text;
             Origin = new Point { X = x, Y = y };
 
@@ -40,7 +40,7 @@ namespace TextUI.Inputs.TuiMenu {
                 Selected = true;
                 Draw();
 
-                new TuiMenuDropdown(Origin.X + 1, Origin.Y, MenuItems, ParentWindow);
+                new MenuDropdown(Origin.X + 1, Origin.Y, MenuItems, ParentWindow);
 
             }
         }
@@ -53,7 +53,7 @@ namespace TextUI.Inputs.TuiMenu {
         }
 
         public override void Enter() {
-            TuiMenuDropdown = new TuiMenuDropdown(Origin.X + 1, Origin.Y, MenuItems, ParentWindow);
+            MenuDropdown = new MenuDropdown(Origin.X + 1, Origin.Y, MenuItems, ParentWindow);
         }
 
         public override void CursorMoveLeft() {
@@ -65,7 +65,7 @@ namespace TextUI.Inputs.TuiMenu {
         }
 
         public override void CursorMoveDown() {
-            TuiMenuDropdown = new TuiMenuDropdown(Origin.X + 1, Origin.Y, MenuItems, ParentWindow);
+            MenuDropdown = new MenuDropdown(Origin.X + 1, Origin.Y, MenuItems, ParentWindow);
         }
 
     }

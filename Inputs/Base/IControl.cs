@@ -1,6 +1,6 @@
 ﻿namespace TextUI.Inputs.Base {
 
-    public interface ITuiControl : ITuiElement {
+    public interface IControl : IElement {
 
         bool IsSelectable { get; set; }
         string Id { get; }

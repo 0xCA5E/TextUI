@@ -6,13 +6,13 @@ using TextUI.Windows.Base;
 
 namespace TextUI {
 
-    public class TuiTextCursor : ITuiElement {
+    public class TextCursor : IElement {
 
-        public TuiTextCursor(TuiWindow parentWindow) {
+        public TextCursor(Window parentWindow) {
             ParentWindow = parentWindow;
         }
 
-        public TuiWindow ParentWindow { get; private set; }
+        public Window ParentWindow { get; private set; }
         public TuiApp ContainingApp { get; internal set; }
         public int Width { get { return _isVisible ? 1 : 0; } }
         public int Height { get { return _isVisible ? 1 : 0; } }

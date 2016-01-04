@@ -7,14 +7,14 @@ using TextUI.Structs;
 
 namespace TextUI.Windows.Base {
 
-    public class TuiWindow : ITuiElement {
+    public class Window : IElement {
 
-        public TuiWindow(int x, int y, int width, int height, TuiWindow parentWindow, ConsoleColor backgroundColor = ConsoleColor.Black) {
+        public Window(int x, int y, int width, int height, Window parentWindow, ConsoleColor backgroundColor = ConsoleColor.Black) {
             Origin = new Point{ X = x, Y = y };
             Width = width;
             Height = height;
             BackgroundColor = backgroundColor;
-            _controls = new List<TuiControl>();
+            _controls = new List<Control>();
 
             ParentWindow = parentWindow;
             if (ParentWindow == null) return;
@@ -31,8 +31,8 @@ namespace TextUI.Windows.Base {
         public bool HasExited {
             get { return _hasExited; }
         }
-        public TuiWindow ParentWindow { get; private set; }
-        public IReadOnlyCollection<TuiWindow> ChildWindows {
+        public Window ParentWindow { get; private set; }
+        public IReadOnlyCollection<Window> ChildWindows {
             get { return _childWindows.AsReadOnly(); }
         }
         public int Width { get; private set; }
@@ -47,11 +47,11 @@ namespace TextUI.Windows.Base {
             }
         }
         public ConsoleColor BackgroundColor { get; set; }
-        public IReadOnlyCollection<TuiControl> Controls {
+        public IReadOnlyCollection<Control> Controls {
             get { return _controls.AsReadOnly(); }
         }
         public TuiApp ContainingApp { get; internal set; }
-        protected TuiControl CurrentlySelected {
+        protected Control CurrentlySelected {
             get { return _currentlySelected; }
             set {
                 _currentlySelected = value;
@@ -62,10 +62,10 @@ namespace TextUI.Windows.Base {
                     CurrentlySelected.Select();
             }
         }
-        protected List<TuiControl> _controls;
-        private readonly List<TuiWindow> _childWindows = new List<TuiWindow>();
+        protected List<Control> _controls;
+        private readonly List<Window> _childWindows = new List<Window>();
         private volatile bool _hasExited;
-        private TuiControl _currentlySelected;
+        private Control _currentlySelected;
 
         public virtual void Draw() {
             if (ContainingApp == null) return;
@@ -81,14 +81,14 @@ namespace TextUI.Windows.Base {
                 CurrentlySelected.Select();
         }
 
-        public void AddControl(TuiControl control) {
+        public void AddControl(Control control) {
             if (control == null) return;
             control.ContainingApp = ContainingApp;
             _controls.Add(control);
             control.Draw();
         }
 
-        public void RemoveControl(TuiControl control) {
+        public void RemoveControl(Control control) {
             if (control == null) return;
             if (!_controls.Contains(control)) return;
             if (CurrentlySelected == control) {
@@ -131,7 +131,7 @@ namespace TextUI.Windows.Base {
 
         }
 
-        public ITuiControl GetControlById(string id) {
+        public IControl GetControlById(string id) {
             return _controls.FirstOrDefault(x => x.Id == id);
         }
 
@@ -166,7 +166,7 @@ namespace TextUI.Windows.Base {
             
         }
 
-        public TuiControl GetNextControl(bool selectableControlsOnly = false) {
+        public Control GetNextControl(bool selectableControlsOnly = false) {
 
             var idxOfThisControl = _controls.IndexOf(CurrentlySelected);
             var i = idxOfThisControl;
@@ -180,7 +180,7 @@ namespace TextUI.Windows.Base {
             return null;
         }
 
-        public TuiControl GetPrevControl(bool selectableControlsOnly = false) {
+        public Control GetPrevControl(bool selectableControlsOnly = false) {
             
             var idxOfThisControl = _controls.IndexOf(CurrentlySelected);
             var i = idxOfThisControl;
@@ -195,7 +195,7 @@ namespace TextUI.Windows.Base {
             return null;
         }
 
-        public TuiControl GetNextControlRight(bool selectableControlsOnly = false) {
+        public Control GetNextControlRight(bool selectableControlsOnly = false) {
             if (CurrentlySelected == null) return null;
 
             // Get all controls that collide with a rightward ray-trace the height of this control
@@ -227,17 +227,17 @@ namespace TextUI.Windows.Base {
             return null;
         }
 
-        public TuiControl GetNextControlLeft(bool selectableControlsOnly = false) {
+        public Control GetNextControlLeft(bool selectableControlsOnly = false) {
             
             return null;
         }
 
-        public TuiControl GetNextControlUp(bool selectableControlsOnly = false) {
+        public Control GetNextControlUp(bool selectableControlsOnly = false) {
             
             return null;
         }
 
-        public TuiControl GetNextControlDown(bool selectableControlsOnly = false) {
+        public Control GetNextControlDown(bool selectableControlsOnly = false) {
             
             return null;
         }
